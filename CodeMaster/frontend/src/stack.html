@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Stack Visualizer</title>
+		<link rel="stylesheet" href="/css/stack.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>Stack Visualizer</h1>
+		</header>
+
+		<div class="container">
+			<div class="container-header">
+				<input type="number" class="text" required />
+				<button class="push">Push</button>
+				<button class="pop">Pop</button>
+				<button class="reset">Reset</button>
+				<button type="button" id="quizButton" onclick="openQuizPage()">Take a Quiz</button>
+			</div>
+
+			<div class="container-body">
+				<div class="stack">
+					<div class="main-stack-bucket"></div>
+				</div>
+
+				<div class="info">
+					<div class="sec1">
+						<h3>Top of the Stack:-</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec2">
+						<h3>Last Pushed Item:-</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec3">
+						<h3>Last Popped Item:-</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec3">
+						<h3>Size of the Stack:-</h3>
+						<button class="box">5</button>
+					</div>
+
+					<div class="massage-box">
+						<h2>Message Box</h2>
+						<div class="massage"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-box">
+			<h3>What is a Stack?</h3>
+			<p>A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means that the last element added to the stack is the first one to be removed. 
+				It is similar to a stack of plates where you add plates to the top and remove plates from the top.
+		</p>
+		</div>
+
+		<!-- script -->
+		<script src="/js/stack.js"></script>
+		<script>
+			function openQuizPage() {
+				window.open('/stackqueuequiz.html', '_blank');
+			}
+		</script>
+		<style>
+			/* Styling for the footer definition box */
+			.footer-box {
+				position: fixed;
+				bottom: 20px;
+				left: 10px;
+				width: 300px;
+				padding: 15px;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+			.footer-box h3 {
+				margin: 0;
+				font-size: 18px;
+				color: #333;
+			}
+			.footer-box p {
+				font-size: 14px;
+				color: #555;
+			}
+		</style>
+	</body>
+</html>

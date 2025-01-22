@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Sorting Algorithm  Quiz</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+				margin: 0;
+				padding: 0;
+			}
+
+			.container {
+				width: 80%;
+				margin: auto;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+				color: #4a4a4a;
+			}
+
+			.question {
+				margin: 20px 0;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				background-color: #fff;
+			}
+
+			.question h3 {
+				margin: 0;
+			}
+
+			.options {
+				margin-top: 10px;
+			}
+
+			.options button {
+				display: block;
+				margin: 5px 0;
+				padding: 10px;
+				width: 100%;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.options button.correct {
+				background-color: green;
+				color: white;
+			}
+
+			.options button.incorrect {
+				background-color: red;
+				color: white;
+			}
+
+			#footer {
+				position: fixed;
+				bottom: 10px;
+				right: 20px;
+			}
+
+			#footer button {
+				background-color: #007BFF;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			#footer button:hover {
+				background-color: #0056b3;
+			}
+
+			.timer {
+				text-align: center;
+				margin-top: 10px;
+				font-size: 18px;
+				font-weight: bold;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Sorting Algorithm Quiz</h1>
+			<div class="timer" id="timer">Time Left: 05:00</div>
+			<button id="startQuizButton" onclick="startQuiz()">Start the Quiz</button>
+			<div id="quizContainer" style="display: none;">
+				<div class="question" id="q1">
+                    <h3>1. Which sorting algorithm has the best average case time complexity?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">Bubble Sort</button>
+                        <button onclick="checkAnswer(this, false)">Selection Sort</button>
+                        <button onclick="checkAnswer(this, true)">MergeSort</button>
+                        <button onclick="checkAnswer(this, false)">Insertion Sort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q2">
+                    <h3>2. Which sorting algorithm is unstable?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">MergeSort</button>
+                        <button onclick="checkAnswer(this, true)">QuickSort</button>
+                        <button onclick="checkAnswer(this, false)">Insertion Sort</button>
+                        <button onclick="checkAnswer(this, false)">Bubble Sort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q3">
+                    <h3>3. What is the time complexity of HeapSort in the worst case?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">O(n log n)</button>
+                        <button onclick="checkAnswer(this, false)">O(n^2)</button>
+                        <button onclick="checkAnswer(this, false)">O(n)</button>
+                        <button onclick="checkAnswer(this, false)">O(log n)</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q4">
+                    <h3>4. Which of the following is a non-comparison-based sorting algorithm?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">QuickSort</button>
+                        <button onclick="checkAnswer(this, false)">MergeSort</button>
+                        <button onclick="checkAnswer(this, true)">Radix Sort</button>
+                        <button onclick="checkAnswer(this, false)">Bubble Sort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q5">
+                    <h3>5. What is the worst-case time complexity of MergeSort?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">O(n log n)</button>
+                        <button onclick="checkAnswer(this, false)">O(n^2)</button>
+                        <button onclick="checkAnswer(this, false)">O(n)</button>
+                        <button onclick="checkAnswer(this, false)">O(log n)</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q6">
+                    <h3>6. Which sorting algorithm has a time complexity of O(n^2) in the worst case?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">MergeSort</button>
+                        <button onclick="checkAnswer(this, false)">HeapSort</button>
+                        <button onclick="checkAnswer(this, true)">Bubble Sort</button>
+                        <button onclick="checkAnswer(this, false)">QuickSort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q7">
+                    <h3>7. Which of the following sorting algorithms is in-place?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">QuickSort</button>
+                        <button onclick="checkAnswer(this, false)">MergeSort</button>
+                        <button onclick="checkAnswer(this, false)">Radix Sort</button>
+                        <button onclick="checkAnswer(this, false)">Counting Sort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q8">
+                    <h3>8. Which sorting algorithm is known for being the most efficient on small datasets?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">MergeSort</button>
+                        <button onclick="checkAnswer(this, true)">Insertion Sort</button>
+                        <button onclick="checkAnswer(this, false)">QuickSort</button>
+                        <button onclick="checkAnswer(this, false)">HeapSort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q9">
+                    <h3>9. Which sorting algorithm is used by the built-in JavaScript sort function?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">QuickSort</button>
+                        <button onclick="checkAnswer(this, true)">MergeSort</button>
+                        <button onclick="checkAnswer(this, false)">Insertion Sort</button>
+                        <button onclick="checkAnswer(this, false)">Bubble Sort</button>
+                    </div>
+                </div>
+                
+                <div class="question" id="q10">
+                    <h3>10. Which sorting algorithm is generally the most efficient for large datasets?</h3>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">Bubble Sort</button>
+                        <button onclick="checkAnswer(this, false)">Selection Sort</button>
+                        <button onclick="checkAnswer(this, true)">QuickSort</button>
+                        <button onclick="checkAnswer(this, false)">HeapSort</button>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </body>
+                
+		<div id="scoreContainer" class="score" style="display: none;">
+			<!-- Score will appear here -->
+		</div>
+		<div id="footer">
+			<button id="endQuizButton" style="display: none;" onclick="endQuiz()">End Quiz</button>
+		</div>
+
+		<script>
+			let timerInterval;
+			let timeLeft = 5 * 60;
+			let score = 0; // User's score
+			let totalQuestions = 10; // Total number of questions
+
+			function startQuiz() {
+				document.getElementById("startQuizButton").style.display = "none";
+				document.getElementById("quizContainer").style.display = "block";
+				document.getElementById("endQuizButton").style.display = "inline";
+				timerInterval = setInterval(updateTimer, 1000);
+			}
+
+			function updateTimer() {
+				if (timeLeft <= 0) {
+					clearInterval(timerInterval);
+					endQuiz();
+				} else {
+					timeLeft--;
+					const minutes = Math.floor(timeLeft / 60);
+					const seconds = timeLeft % 60;
+					document.getElementById("timer").innerText =
+						"Time Left: " +
+						String(minutes).padStart(2, "0") +
+						":" +
+						String(seconds).padStart(2, "0");
+				}
+			}
+
+			function checkAnswer(button, isCorrect) {
+				// Mark the button as correct or incorrect
+				if (isCorrect) {
+					button.classList.add("correct");
+					score++; // Increment score for correct answers
+				} else {
+					button.classList.add("incorrect");
+				}
+				// Disable all options for the question
+				const options = button.parentElement.children;
+				for (let i = 0; i < options.length; i++) {
+					options[i].disabled = true;
+				}
+			}
+
+			function endQuiz() {
+				clearInterval(timerInterval); // Stop the timer
+				document.getElementById("quizContainer").style.display = "none"; // Hide quiz
+				document.getElementById("endQuizButton").style.display = "none"; // Hide end button
+
+				// Display the user's score
+				const scoreContainer = document.getElementById("scoreContainer");
+				scoreContainer.style.display = "block";
+				scoreContainer.innerText =
+					"Your Score: " + score + " out of " + totalQuestions;
+
+				// Highlight correct/incorrect answers
+				const buttons = document.querySelectorAll(".options button");
+				buttons.forEach((button) => {
+					if (button.classList.contains("correct")) {
+						button.style.backgroundColor = "green";
+						button.style.color = "white";
+					} else if (button.classList.contains("incorrect")) {
+						button.style.backgroundColor = "red";
+						button.style.color = "white";
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

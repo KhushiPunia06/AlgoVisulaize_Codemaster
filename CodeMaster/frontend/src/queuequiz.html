@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Queue Quiz</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+				margin: 0;
+				padding: 0;
+			}
+
+			.container {
+				width: 80%;
+				margin: auto;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+				color: #4a4a4a;
+			}
+
+			.question {
+				margin: 20px 0;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				background-color: #fff;
+			}
+
+			.question h3 {
+				margin: 0;
+			}
+
+			.options {
+				margin-top: 10px;
+			}
+
+			.options button {
+				display: block;
+				margin: 5px 0;
+				padding: 10px;
+				width: 100%;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.options button.correct {
+				background-color: green;
+				color: white;
+			}
+
+			.options button.incorrect {
+				background-color: red;
+				color: white;
+			}
+
+			#footer {
+				position: fixed;
+				bottom: 10px;
+				right: 20px;
+			}
+
+			#footer button {
+				background-color: #007BFF;
+				color: white;
+				border: none;
+				padding: 10px 20px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			#footer button:hover {
+				background-color: #0056b3;
+			}
+
+			.timer {
+				text-align: center;
+				margin-top: 10px;
+				font-size: 18px;
+				font-weight: bold;
+				color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Queue Quiz</h1>
+			<div class="timer" id="timer">Time Left: 05:00</div>
+			<button id="startQuizButton" onclick="startQuiz()">Start the Quiz</button>
+			<div id="quizContainer" style="display: none;">
+				<div class="question" id="q1">
+                    <p>1. What is a queue?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">A data structure where elements are added at the end and removed from the front</button>
+                        <button onclick="checkAnswer(this, false)">A data structure where elements are added and removed from the front</button>
+                        <button onclick="checkAnswer(this, false)">A data structure where elements are added and removed from the end</button>
+                        <button onclick="checkAnswer(this, false)">A data structure where elements are added randomly</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q2">
+                    <p>2. What is the time complexity of inserting an element in a queue (enqueue)?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">O(1)</button>
+                        <button onclick="checkAnswer(this, false)">O(n)</button>
+                        <button onclick="checkAnswer(this, false)">O(log n)</button>
+                        <button onclick="checkAnswer(this, false)">O(n^2)</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q3">
+                    <p>3. Which of the following is true for a queue?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">It follows First In First Out (FIFO) order</button>
+                        <button onclick="checkAnswer(this, false)">It follows Last In First Out (LIFO) order</button>
+                        <button onclick="checkAnswer(this, false)">It can only store one element at a time</button>
+                        <button onclick="checkAnswer(this, false)">It can remove elements from the middle</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q4">
+                    <p>4. What is the time complexity of removing an element from a queue (dequeue)?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">O(1)</button>
+                        <button onclick="checkAnswer(this, false)">O(n)</button>
+                        <button onclick="checkAnswer(this, false)">O(log n)</button>
+                        <button onclick="checkAnswer(this, false)">O(n^2)</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q5">
+                    <p>5. What is a circular queue?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">A queue where the last element points back to the first element</button>
+                        <button onclick="checkAnswer(this, false)">A queue where elements are removed randomly</button>
+                        <button onclick="checkAnswer(this, false)">A queue with no front or rear</button>
+                        <button onclick="checkAnswer(this, false)">A queue that allows multiple operations at once</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q6">
+                    <p>6. In a queue, what does "enqueue" mean?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">Inserting an element at the end of the queue</button>
+                        <button onclick="checkAnswer(this, false)">Removing an element from the front of the queue</button>
+                        <button onclick="checkAnswer(this, false)">Removing an element from the end of the queue</button>
+                        <button onclick="checkAnswer(this, false)">Inserting an element at the front of the queue</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q7">
+                    <p>7. What does the "front" of the queue refer to?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">The element that will be removed next</button>
+                        <button onclick="checkAnswer(this, false)">The element that was added last</button>
+                        <button onclick="checkAnswer(this, false)">The element that is in the middle</button>
+                        <button onclick="checkAnswer(this, false)">The element that has been in the queue for the longest time</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q8">
+                    <p>8. What is the major disadvantage of a linear queue?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">It has high access time for elements</button>
+                        <button onclick="checkAnswer(this, true)">It may have wasted space due to the shifting of elements</button>
+                        <button onclick="checkAnswer(this, false)">It does not support concurrent operations</button>
+                        <button onclick="checkAnswer(this, false)">It cannot be implemented using arrays</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q9">
+                    <p>9. In a priority queue, how is the order of elements determined?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, true)">Based on the priority of the elements</button>
+                        <button onclick="checkAnswer(this, false)">By the order in which they were inserted</button>
+                        <button onclick="checkAnswer(this, false)">Based on the value of the elements</button>
+                        <button onclick="checkAnswer(this, false)">Based on the element's size</button>
+                    </div>
+                </div>
+    
+                <div class="question" id="q10">
+                    <p>10. What is the time complexity of accessing an element in a queue?</p>
+                    <div class="options">
+                        <button onclick="checkAnswer(this, false)">O(1)</button>
+                        <button onclick="checkAnswer(this, true)">O(n)</button>
+                        <button onclick="checkAnswer(this, false)">O(log n)</button>
+                        <button onclick="checkAnswer(this, false)">O(n^2)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+		<div id="scoreContainer" class="score" style="display: none;">
+			<!-- Score will appear here -->
+		</div>
+		<div id="footer">
+			<button id="endQuizButton" style="display: none;" onclick="endQuiz()">End Quiz</button>
+		</div>
+
+		<script>
+			let timerInterval;
+			let timeLeft = 5 * 60;
+			let score = 0; // User's score
+			let totalQuestions = 10; // Total number of questions
+
+			function startQuiz() {
+				document.getElementById("startQuizButton").style.display = "none";
+				document.getElementById("quizContainer").style.display = "block";
+				document.getElementById("endQuizButton").style.display = "inline";
+				timerInterval = setInterval(updateTimer, 1000);
+			}
+
+			function updateTimer() {
+				if (timeLeft <= 0) {
+					clearInterval(timerInterval);
+					endQuiz();
+				} else {
+					timeLeft--;
+					const minutes = Math.floor(timeLeft / 60);
+					const seconds = timeLeft % 60;
+					document.getElementById("timer").innerText =
+						"Time Left: " +
+						String(minutes).padStart(2, "0") +
+						":" +
+						String(seconds).padStart(2, "0");
+				}
+			}
+
+			function checkAnswer(button, isCorrect) {
+				// Mark the button as correct or incorrect
+				if (isCorrect) {
+					button.classList.add("correct");
+					score++; // Increment score for correct answers
+				} else {
+					button.classList.add("incorrect");
+				}
+				// Disable all options for the question
+				const options = button.parentElement.children;
+				for (let i = 0; i < options.length; i++) {
+					options[i].disabled = true;
+				}
+			}
+
+			function endQuiz() {
+				clearInterval(timerInterval); // Stop the timer
+				document.getElementById("quizContainer").style.display = "none"; // Hide quiz
+				document.getElementById("endQuizButton").style.display = "none"; // Hide end button
+
+				// Display the user's score
+				const scoreContainer = document.getElementById("scoreContainer");
+				scoreContainer.style.display = "block";
+				scoreContainer.innerText =
+					"Your Score: " + score + " out of " + totalQuestions;
+
+				// Highlight correct/incorrect answers
+				const buttons = document.querySelectorAll(".options button");
+				buttons.forEach((button) => {
+					if (button.classList.contains("correct")) {
+						button.style.backgroundColor = "green";
+						button.style.color = "white";
+					} else if (button.classList.contains("incorrect")) {
+						button.style.backgroundColor = "red";
+						button.style.color = "white";
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

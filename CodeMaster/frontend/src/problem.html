@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems - Code Visualize</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light gray background */
+    color: #333; /* Dark gray text */
+    line-height: 1.6;
+}
+header {
+    background-color: #31363f;; /* Blue background for header */
+    color: white; /* White text for header */
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white; /* White background for main content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+h2 {
+    color: #31363f;; /* Blue for headings */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table th, table td {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    background-color: #31363f;; /* Blue background for table headers */
+    color: white; /* White text for table headers */
+}
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light gray for even rows */
+}
+.solve-btn {
+    background-color: #31363f;; /* Blue background for buttons */
+    color: white; /* White text for buttons */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer;
+    text-decoration: none;
+}
+.solve-btn:hover {
+    background-color: #31363f;; /* Darker blue for button hover */
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #31363f;; /* Blue background for footer */
+    color: white; /* White text for footer */
+}
+.problem-description {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light gray background for problem description */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 20px;
+}
+
+
+    </style>
+  <script>
+    function showDescription(id) {
+    document.querySelectorAll('.problem-description').forEach(desc => {
+        desc.style.display = 'none'; // Hide all descriptions
+    });
+    document.getElementById(id).style.display = 'block'; // Show the selected one
+}
+  </script>
+</head>
+<body>
+    <header>
+        <h1>Problems - Code Visualize</h1>
+    </header>
+    <main>
+        <h2>Problem List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Problem Name</th>
+                    <th>Difficulty</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Easy Problems -->
+                <tr>
+                    <td>Sum of Two Numbers</td>
+                    <td>Easy</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem1')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Reverse a String</td>
+                    <td>Easy</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem4')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Check for Palindrome</td>
+                    <td>Easy</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem5')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find Maximum Element</td>
+                    <td>Easy</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem6')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find Even Numbers in an Array</td>
+                    <td>Easy</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem7')">Solve</button></td>
+                </tr>
+                <!-- Medium Problems -->
+                <tr>
+                    <td>Find Missing Number</td>
+                    <td>Medium</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem2')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find Prime Numbers</td>
+                    <td>Medium</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem8')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find First Non-Repeated Character</td>
+                    <td>Medium</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem9')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Sort an Array</td>
+                    <td>Medium</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem10')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find Longest Substring Without Repeating Characters</td>
+                    <td>Medium</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem11')">Solve</button></td>
+                </tr>
+                <!-- Hard Problems -->
+                <tr>
+                    <td>Shortest Path in Graph</td>
+                    <td>Hard</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem3')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Find Strongly Connected Components</td>
+                    <td>Hard</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem12')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Maximum Flow in a Network</td>
+                    <td>Hard</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem13')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Traveling Salesman Problem</td>
+                    <td>Hard</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem14')">Solve</button></td>
+                </tr>
+                <tr>
+                    <td>Knapsack Problem</td>
+                    <td>Hard</td>
+                    <td><button class="solve-btn" onclick="showDescription('problem15')">Solve</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Problem Descriptions -->
+        <div id="problem1" class="problem-description">
+            <h3>Sum of Two Numbers (Easy)</h3>
+            <p>
+                Given two integers, return their sum. Write a function that takes two inputs and returns their addition.
+            </p>
+        </div>
+        <div id="problem2" class="problem-description">
+            <h3>Find Missing Number (Medium)</h3>
+            <p>
+                Given an array of integers from 1 to n with one number missing, find the missing number.
+                For example, for the input [1, 2, 4, 5], the output should be 3.
+            </p>
+        </div>
+        <div id="problem3" class="problem-description">
+            <h3>Shortest Path in Graph (Hard)</h3>
+            <p>
+                Given a graph and a source node, find the shortest path to all other nodes using Dijkstra's algorithm.
+                Assume the graph is represented as an adjacency matrix.
+            </p>
+        </div>
+        <!-- Added new problem descriptions -->
+        <div id="problem4" class="problem-description">
+            <h3>Reverse a String (Easy)</h3>
+            <p>
+                Write a function that takes a string as input and returns the string reversed.
+            </p>
+        </div>
+        <div id="problem5" class="problem-description">
+            <h3>Check for Palindrome (Easy)</h3>
+            <p>
+                Given a string, determine if it is a palindrome (reads the same backward as forward).
+            </p>
+        </div>
+        <div id="problem6" class="problem-description">
+            <h3>Find Maximum Element (Easy)</h3>
+            <p>
+                Given an array, find and return the maximum element in the array.
+            </p>
+        </div>
+        <div id="problem7" class="problem-description">
+            <h3>Find Even Numbers in an Array (Easy)</h3>
+            <p>
+                Given an array of integers, return an array containing only the even numbers.
+            </p>
+        </div>
+        <div id="problem8" class="problem-description">
+            <h3>Find Prime Numbers (Medium)</h3>
+            <p>
+                Write a function to find all prime numbers up to a given number n.
+            </p>
+        </div>
+        <div id="problem9" class="problem-description">
+            <h3>Find First Non-Repeated Character (Medium)</h3>
+            <p>
+                Given a string, find the first non-repeated character in it.
+            </p>
+        </div>
+        <div id="problem10" class="problem-description">
+            <h3>Sort an Array (Medium)</h3>
+            <p>
+                Implement a function that sorts an array in ascending order using any sorting algorithm.
+            </p>
+        </div>
+        <div id="problem11" class="problem-description">
+            <h3>Find Longest Substring Without Repeating Characters (Medium)</h3>
+            <p>
+                Given a string, find the length of the longest substring without repeating characters.
+            </p>
+        </div>
+        <div id="problem12" class="problem-description">
+            <h3>Find Strongly Connected Components (Hard)</h3>
+            <p>
+                Implement an algorithm to find strongly connected components in a directed graph.
+            </p>
+        </div>
+        <div id="problem13" class="problem-description">
+            <h3>Maximum Flow in a Network (Hard)</h3>
+            <p>
+                Solve the maximum flow problem in a network using the Ford-Fulkerson algorithm.
+            </p>
+        </div>
+        <div id="problem14" class="problem-description">
+            <h3>Traveling Salesman Problem (Hard)</h3>
+            <p>
+                Implement a solution for the traveling salesman problem using dynamic programming.
+            </p>
+        </div>
+        <div id="problem15" class="problem-description">
+            <h3>Knapsack Problem (Hard)</h3>
+            <p>
+                Solve the 0/1 knapsack problem using dynamic programming to find the maximum value of items to be placed in a knapsack.
+            </p>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Code Visualize. All Rights Reserved.
+    </footer>
+    
+</body>
+</html>

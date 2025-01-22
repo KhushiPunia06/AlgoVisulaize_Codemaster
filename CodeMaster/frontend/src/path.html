@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Algorithm Visualizer</title>
+		<link rel="stylesheet" href="/css/path.css" />
+	</head>
+	<body>
+		<div id="header">
+			<a href="/index.html"><div id="title">Path Finding Visualizer</div></a>
+			<div id="header-right">
+				<div>
+					<select id="algorithm_type" name="sort_type">
+						<option value="dijkstra" selected>Dijkstra's Algorithm</option>
+						<option value="Astar">A* Search algorithm</option>
+						<option value="bfs">BFS(Breadth first search)</option>
+						<option value="dfs">DFS(Depth first search)</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div id="indicator-container">
+			<div class="indicator">
+				<div class="indicator-block" id="start-indicator"></div>
+				<div>Starting Position</div>
+			</div>
+			<div class="indicator">
+				<div class="indicator-block" id="end-indicator"></div>
+				<div>Ending Position</div>
+			</div>
+			<div class="indicator">
+				<div class="indicator-block" id="visited-indicator"></div>
+				<div>Visited Node</div>
+			</div>
+			<div class="indicator">
+				<div class="indicator-block" id="wall-indicator"></div>
+				<div>Wall</div>
+			</div>
+			<div class="indicator">
+				<div class="indicator-block" id="path-indicator"></div>
+				<div>Path</div>
+				<button type="button" id="quizButton" onclick="openQuizPage()">Take a Quiz</button>
+				<button type="button" id="quizButton" onclick="openDefinitionBox()">Learn More</button>
+			</div>
+
+		</div>
+		
+	
+		<div id="container"></div>
+		<div id="buttonsdiv">
+			<button id="visualizeButton" class="button">Visualize</button>
+			<button id="clearButton" class="button">Clear Grid</button>
+		</div>
+		<div id="definitionBox">
+			<h3>Path Finding Algorithms</h3>
+			<p>
+				Pathfinding algorithms are designed to navigate graphs and grids efficiently.
+				They determine the shortest or optimal path from a starting point to an endpoint.
+				Examples include Dijkstra's Algorithm, A*, BFS, and DFS.
+			</p>
+			<button onclick="closeDefinitionBox()">Close</button>
+		</div>
+		<script src="/js/path.js"></script>
+		<script>
+			function openQuizPage() {
+				window.open('/pathquiz.html', '_blank');
+			}
+		</script>
+		 <script>
+			// Function to display the definition box
+			function openDefinitionBox() {
+				const box = document.getElementById("definitionBox");
+				box.style.display = "block"; // Show the box
+			}
+	
+			// Function to hide the definition box
+			function closeDefinitionBox() {
+				const box = document.getElementById("definitionBox");
+				box.style.display = "none"; // Hide the box
+			}
+		</script>
+
+		
+	<style>
+		        #definitionBox button {
+            display: block;
+            margin: 10px auto 0;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #definitionBox button:hover {
+            background-color: #0056b3;
+        }
+		#definitionBox {
+            position: fixed;
+            bottom: 10%;
+            right: 10%;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+        }
+
+        #definitionBox h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #definitionBox p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+
+	</style>
+	</body>
+</html>

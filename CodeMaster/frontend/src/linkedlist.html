@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+		<link rel="icon" href="/images/Linked.svg" />
+
+		<link rel="stylesheet" href="/css/linknormal.css" />
+		<link rel="stylesheet" href="/css/fontlink.css" />
+
+		<link
+			href="https://fonts.googleapis.com/css?family=Oswald&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Livvic&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="/css/linkedlist.css" />
+		<link rel="stylesheet" href="/css/linkresponse.css" />
+		<title>Linked List Visualization</title>
+	</head>
+
+	<body>
+		
+		<div id="settings">
+			<div class="menu-header">
+				<div id="close-menu">
+					<i class="fas fa-times"></i>
+				</div>
+				
+				<div><h2>Settings</h2></div>
+				
+			</div>
+			
+			<div class="settings-container">
+				<div>
+					<p>Node Animation Speed:</p>
+					<input type="number" placeholder="Miliseconds" />
+				</div>
+
+				<div>
+					<p>Pointer Animation Speed:</p>
+					<input type="number" placeholder="Miliseconds" />
+				</div>
+
+				<div>
+					<p>Delete Animation Speed:</p>
+					<input type="number" placeholder="Miliseconds" />
+				</div>
+
+				<div class="error-message">
+					<p id="settings-error"></p>
+				</div>
+
+				<div class="success">
+					<p id="succes"></p>
+				</div>
+
+				<button id="save-settings">Save</button>
+			</div>
+		</div>
+
+		<header>
+			<div class="header-container">
+				<div id="settings-menu">
+					<i class="fas fa-bars"></i>
+				</div>
+
+				<div>
+					<h1>Linked <span>List</span> Visualization</h1>
+				</div>
+				<button type="button" id="quizButton" onclick="openQuizPage()">Take a Quiz</button>
+				
+
+				<div id="theme-switcher">
+					<i class="fas fa-adjust"></i>
+				</div>
+			</div>
+			<div class="gradient-border"></div>
+		</header>
+
+		<main>
+			<section class="list" id="list"></section>
+
+			<section class="errors">
+				<div class="error-message">
+					<p id="error"></p>
+				</div>
+			</section>
+
+			<section class="operations">
+				<div class="wrapper">
+					<div>
+						<button class="button" id="set-btn">Set</button>
+						<input type="number" placeholder="Index" />
+						<input type="number" placeholder="Data" />
+					</div>
+
+					<div>
+						<button class="button" id="insert-btn">Insert</button>
+						<input type="number" placeholder="Index" />
+						<input type="number" placeholder="Data" />
+					</div>
+
+					<div>
+						<button class="button" id="add-btn">Add</button>
+						<input type="number" placeholder="Data" />
+					</div>
+
+					<div>
+						<div class="remove">
+							<button class="button" id="remove-btn">Remove</button>
+							<button class="button" id="remove-settings">
+								<i class="fas fa-cog"></i>
+							</button>
+						</div>
+
+						<button class="remove-option" id="remove-index-btn">Index</button>
+						<button class="remove-option" id="remove-data-btn">Data</button>
+
+						<input type="number" placeholder="Index" />
+						<input type="number" placeholder="Data" />
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script src="/js/fontlink.js"></script>
+		<script src="/js/linkedlist.js"></script>
+		<script src="/js/linkmain.js"></script>
+		<script src="js/linktheme.js"></script>
+		<script src="js/linksettings.js"></script>
+	</body>
+	<script>
+		function openQuizPage() {
+			window.open('/linkedlistquiz.html', '_blank');
+		}
+	</script>
+	<style>
+		#quizButton {
+	margin-top: 15px;
+	background-color:#6b4cf0;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+#quizButton:hover {
+	background-color: #6b4cf0;
+}
+	</style>
+
+
+
+
+</html>

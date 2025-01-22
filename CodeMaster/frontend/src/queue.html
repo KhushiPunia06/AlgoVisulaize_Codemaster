@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Queue Visualizer</title>
+		<link rel="stylesheet" href="/css/queue.css" />
+		<style>
+			/* Styling for the footer definition box */
+			.footer-box {
+				position: fixed;
+				bottom: 20px;
+				left: 10px;
+				width: 300px;
+				padding: 15px;
+				background-color: #f0f0f0;
+				border: 1px solid #ccc;
+				border-radius: 10px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			}
+			.footer-box h3 {
+				margin: 0;
+				font-size: 18px;
+				color: #333;
+			}
+			.footer-box p {
+				font-size: 14px;
+				color: #555;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1 class="heading">Queue Visualization</h1>
+		</header>
+
+		<div class="container">
+			<div class="container-header">
+				<input type="number" class="text" required />
+				<button class="enqueue">Front</button>
+				<button class="dequeue">Pop</button>
+				<button class="reset">Reset</button>
+				<button type="button" id="quizButton" onclick="openQuizPage()">Take a Quiz</button>
+			</div>
+
+			<div class="container-body">
+				<div class="queue">
+					<div class="main-queue-bucket"></div>
+				</div>
+
+				<div class="info">
+					<div class="sec1">
+						<h3>Front of the Queue:</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec2">
+						<h3>Last Added Item:</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec3">
+						<h3>Last Removed Item:</h3>
+						<button class="box"></button>
+					</div>
+					<div class="sec3">
+						<h3>Size of the Queue:</h3>
+						<button class="box">0</button>
+					</div>
+
+					<div class="message-box">
+						<h2>Message Box</h2>
+						<div class="message"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer box for queue definition -->
+		<div class="footer-box">
+			<h3>What is a Queue?</h3>
+			<p>A queue is a linear data structure that follows the First In, First Out (FIFO) principle. The element added first will be removed first. It is commonly used in scenarios such as task scheduling, buffering, and handling requests.</p>
+		</div>
+
+		<script src="/js/queue.js"></script>
+		<script>
+			function openQuizPage() {
+				window.open('/queuequiz.html', '_blank');
+			}
+		</script>
+	</body>
+</html>

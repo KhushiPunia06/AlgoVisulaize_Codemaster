@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <div id="chat-window">
+            <div class="bot-message">
+                Hi! Ask me about data structures, algorithms, programming languages, or web development.
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your question here...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script>
+        const chatWindow = document.getElementById("chat-window");
+const userInput = document.getElementById("user-input");
+const sendButton = document.getElementById("send-button");
+
+// Predefined topics and responses
+const botResponses = {
+    "data structures": "Data structures include arrays, linked lists, stacks, queues, trees, and graphs. Each has unique use cases.",
+    "linked list": `A linked list is a linear data structure where elements (nodes) are connected by pointers. There are three main types:
+    1. Singly Linked List
+    2. Doubly Linked List
+    3. Circular Linked List`,
+    "singly linked list": "In a Singly Linked List, each node contains data and a pointer to the next node. Traversal is unidirectional.",
+    "doubly linked list": "In a Doubly Linked List, each node has two pointers: one to the next node and one to the previous node. Traversal can be in both directions.",
+    "circular linked list": "In a Circular Linked List, the last node points back to the first node, forming a circular structure.",
+    "stack": "A stack is a LIFO (Last In, First Out) structure. Operations include push, pop, and peek.",
+    "queue": "A queue is a FIFO (First In, First Out) structure, often used in scheduling and buffering.",
+    "bfs": "Breadth-First Search (BFS) is an algorithm for traversing graphs level by level.",
+    "dfs": "Depth-First Search (DFS) is an algorithm for traversing graphs by exploring as far as possible along a branch before backtracking.",
+    "web development": "Web development involves technologies like HTML, CSS, JavaScript, and frameworks such as React, Angular, or Vue.",
+    "libraries": "Popular web development libraries include React, jQuery, Bootstrap, and D3.js.",
+    "programming languages": "Programming languages include C, C++, Java, Python, JavaScript, and many more. Each has unique syntax and use cases.",
+    "c": "C is a procedural programming language, often used in system programming and embedded systems.",
+    "c++": "C++ is an object-oriented programming language that extends C with features like classes and inheritance.",
+    "java": "Java is a platform-independent, object-oriented language commonly used for enterprise applications.",
+    "python": "Python is a versatile language with simple syntax, widely used in data science, web development, and automation.",
+    default: "I don't have an answer for that. Please ask about data structures, algorithms, programming languages, or web development."
+};
+
+// Add a message to the chat window
+function addMessage(text, className) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = className;
+    messageDiv.textContent = text;
+    chatWindow.appendChild(messageDiv);
+    chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll to the latest message
+}
+
+// Handle user input and bot response
+sendButton.addEventListener("click", () => {
+    const userText = userInput.value.trim();
+    if (userText === "") return;
+
+    // Add user message
+    addMessage(userText, "user-message");
+    userInput.value = "";
+
+    // Bot response
+    setTimeout(() => {
+        const botReply = botResponses[userText.toLowerCase()] || botResponses.default;
+        addMessage(botReply, "bot-message");
+    }, 500);
+});
+
+
+    </script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.chatbot-container {
+    width: 400px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chat-window {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#send-button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bot-message, .user-message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.bot-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    align-self: flex-end;
+}
+
+    </style>
+</body>
+</html>
